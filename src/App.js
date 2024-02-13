@@ -6,23 +6,29 @@ import Dialogs from "./components/Dialogs/Dialogs"
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
+import Friends from "./components/Friends/Friends";
 import {BrowserRouter, Route, Router} from "react-router-dom";
+import state from "./redux/state";
 
 
 
 
-const App = () => {
+const App = (props) => {
+
+
+
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/profile' component={Profile}/>
-                    <Route path='/dialogs' component={Dialogs}/>
+                    <Route path='/profile' render={ () => <Profile state={props.state.profilePage}/>}/>
+                    <Route path='/dialogs' render={ () => <Dialogs state={props.state.messagesPage}/>}/>
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>
+                    <Route path='/friends' component={Friends}/>
                 </div>
             </div>
         </BrowserRouter>
