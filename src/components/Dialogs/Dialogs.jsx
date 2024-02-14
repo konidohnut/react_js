@@ -1,6 +1,8 @@
 import styles from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import TextAria from "./Message/TextAria";
+import React from "react";
 
 const Dialogs = (props) => {
 
@@ -15,6 +17,9 @@ const Dialogs = (props) => {
 
             <div className={styles.messages}>
                 {messageElements}
+            </div>
+            <div>
+                {<TextAria/>}
             </div>
         </div>
     )
